@@ -72,24 +72,21 @@ ini_set('display_errors', 1);
     } else {
         $loginUrl = $client->createAuthUrl(); 
     
-        echo '<h1>Please <a href="' . $loginUrl . '">Login</a> in to your account </h1>';
+        echo '<h1>Please <a href="' . $loginUrl . '">Login</a> into your account </h1>';
     }
     
     try {
         if (isset($_SESSION['access_token']) && $client->getAccessToken()) {
-    
             if ($client->isAccessTokenExpired()) {
                 $loginUrl = $client->createAuthUrl();
                 echo 'Token Expired. ';
                 echo '<br>Click <a href="' . $loginUrl . '">HERE</a> to re-login';
                 exit();
             }
-    
         
             ini_set('display_errors', 1);
             $format = new DateTime();
             $date = new DateTime('now');
-          
             $date_str = $date->format('Y-m-d\TH:i:s') . substr((string) microtime(), 1, 4) . 'Z'; 
             $files = $service->files->listFiles([
                 'q' => "modifiedTime < '$date_str'",
