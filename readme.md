@@ -3,7 +3,7 @@
  
 ### Step 1
 
-Begin by cloning this repository to your machine, and installing all Composer & NPM dependencies.
+Begin by cloning this repository to your machine, and installing all Composer dependencies.
 
 ```bash
 git clone https://github.com/rin4ik/task1.git
